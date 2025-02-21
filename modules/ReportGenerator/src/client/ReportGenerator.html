@@ -1,0 +1,56 @@
+<script type="text/template" id="ReportGeneratorView">
+  <div class="reportGeneratorContainer">
+    <h3>Generate Experiment Report</h3>
+    
+    <div class="form-group">
+      <label>Select Report Type</label>
+      <select class="form-control bv_reportType">
+        <option value="project">By Project and Date Range</option>
+        <option value="experiments">By Specific Experiments</option>
+      </select>
+    </div>
+    
+    <div class="bv_projectSection" style="display:none;">
+      <div class="form-group">
+        <label>Select Project</label>
+        <select class="form-control bv_projectSelect" style="width:100%"></select>
+      </div>
+      
+      <div class="form-group">
+        <label>Date Range</label>
+        <div class="row">
+          <div class="col-sm-6">
+            <input type="date" class="form-control bv_startDate" placeholder="Start Date">
+          </div>
+          <div class="col-sm-6">
+            <input type="date" class="form-control bv_endDate" placeholder="End Date">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="bv_experimentsSection">
+      <div class="form-group">
+        <label>Select Experiments</label>
+        <select class="form-control bv_experimentSelect" style="width:100%"></select>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>Select Report Sections</label>
+      <select class="form-control bv_sectionSelect" style="width:100%"></select>
+    </div>
+    
+    <div class="form-group">
+      <label>Custom Notes</label>
+      <textarea class="form-control bv_customNotes" rows="3"></textarea>
+    </div>
+    
+    <button class="btn btn-primary bv_generateReport">Generate Report</button>
+    
+    <div class="form-group" style="margin-top: 20px;">
+      <label>Report Output</label>
+      <textarea class="form-control bv_reportOutput" rows="10" readonly></textarea>
+    </div>
+  </div>
+</script> 

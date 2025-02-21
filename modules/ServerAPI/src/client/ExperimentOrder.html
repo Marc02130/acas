@@ -1,0 +1,53 @@
+<script type="text/template" id="ExperimentOrderView">
+  <div class="span12">
+    <div class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label"><i class="icon-lock bv_lock"></i> Status</label>
+        <div class="controls">
+          <select class="bv_status select-picker" style="width:350px;"></select>
+        </div>
+      </div>
+
+      <div class="control-group bv_group_protocol">
+        <label class="control-label">*Protocol</label>
+        <div class="controls">
+          <select class="bv_protocol" style="width:350px;"></select>
+        </div>
+      </div>
+
+      <div class="control-group bv_group_projectCode">
+        <label class="control-label">*Project</label>
+        <div class="controls">
+          <select class="bv_projectCode" style="width:350px;"></select>
+        </div>
+      </div>
+
+      <div class="control-group bv_group_expectedCompletionDate">
+        <label class="control-label">Expected Completion</label>
+        <div class="controls">
+          <div class="input-append date" id="dp3" data-date="" data-date format="yy-mm-dd">
+            <input class="bv_expectedCompletionDate" type="text" value="" placeholder="yyyy-mm-dd" style="width:310px;">
+            <span class="add-on bv_expectedCompletionDateIcon"><i class="icon-th"></i></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group bv_group_priority">
+        <label class="control-label">Priority</label>
+        <div class="controls">
+          <input class="bv_priority" type="number" min="1" max="100" style="width:100px;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Save and Cancel -->
+    <div class="span10 bv_saveAndCancelButtons" style="margin-left:25px;margin-top:25px;">
+      <button type="button" class="btn btn-success bv_save pull-right" style="margin-right:10px;">Save</button>
+      <button type="button" class="btn bv_newEntity pull-right" style="margin-right:5px;">Clear Form</button>
+      <button type="button" class="btn btn-danger bv_cancel pull-right" style="margin-right:5px;margin-left:5px;">Cancel</button>
+      <div class="bv_updateComplete pull-right hide" style="padding-top:5px;color:#62c462;"></div>
+      <div class="bv_saving pull-right hide" style="padding-top:5px;color:red;">Saving...</div>
+      <div class="bv_saveFailed pull-right hide" style="padding-top:5px;color:red;">Save Failed</div>
+    </div>
+  </div>
+</script> 

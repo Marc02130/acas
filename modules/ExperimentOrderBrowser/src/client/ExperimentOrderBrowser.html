@@ -1,0 +1,85 @@
+<script type="text/template" id="ExperimentOrderSimpleSearchView">
+    <div class="navbar" style="margin-bottom: 0px;">
+        <div class="navbar-inner" style="border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;">
+            <div class="control-group" style="margin-top: 5px; margin-bottom: 5px;">
+                <div class="input-append">
+                    <input class="bv_experimentOrderSearchTerm" style="
+                            padding-right: 14px;
+                            border-top-left-radius: 15px;
+                            border-bottom-left-radius: 15px;
+                            " type="text" placeholder="Search for Experiment Orders">
+                    <button class="btn bv_doSearch add-on" style="
+                            border-top-right-radius: 15px;
+                            border-bottom-right-radius: 15px;
+                            height: 30px;
+                            margin-top: 0px;
+                            background-color: #fff;
+                            border-left: 0px;
+                            border-bottom: 1px solid #cccccc;
+                            border-right: 1px solid #cccccc;
+                            border-top: 1px solid #cccccc;
+                            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+                            width: 2.5em; padding-right: 0.8em;
+                            transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;" 
+                            type="button" disabled>
+                        <i class="icon-search bv_doSearchIcon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="ExperimentOrderRowView">
+    <td class='bv_orderCode'><%- orderCode %></td>
+    <td class='bv_status'><%- status %></td>
+    <td class='bv_submittedBy'><%- submittedBy %></td>
+    <td class='bv_submittedDate'><%- submittedDate %></td>
+</script>
+
+<script type="text/template" id="ExperimentOrderTableView">
+    <table class="table table-bordered table-striped table-hover" style="margin: 0px; padding: 0px; border: 0px; width: 100%;">
+        <thead>
+            <tr>
+                <th>Order Code</th>
+                <th>Status</th>
+                <th>Submitted By</th>
+                <th>Submitted Date</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</script>
+
+<script type="text/template" id="ExperimentOrderBrowserView">
+    <div class="bv_experimentOrderSearchController" style="padding-bottom: 0px;"></div>
+    <div class="" style="border: 1px solid #d4d4d4; border-top: 0px; margin: 0px; padding: 0px;">
+        <div class="bv_searchStatusIndicator" style="height: 280px;">
+            <table width="100%">
+                <thead>
+                    <tr><td style="display: none;">placeholder</td></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: center; width: 100%; align-content: center; height: 250px;">
+                            <h5 class="bv_noMatchesFoundMessage hide">No Matching Orders Found</h5>
+                            <h5 class="bv_errorOccurredPerformingSearch hide">An error occurred while searching for orders.</h5>
+                            <div class="bv_searchInstructions">
+                                <i class="icon-search"></i>
+                                Experiment Order Browser
+                            </div>
+                            <div class="hide bv_searchingMessage" style="margin: auto;">
+                                <h5>Searching for Orders containing text "<i class="bv_searchTerm"></i>"</h5>
+                                <div class="progress progress-striped active" style="width: 90%; margin: auto;">
+                                    <div class="bar" style="width: 100%; margin: auto;"></div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="bv_experimentOrderTableController hide" style="margin: 0px; padding: 10px; overflow: auto;"></div>
+    </div>
+</script> 

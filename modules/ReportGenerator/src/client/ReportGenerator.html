@@ -1,16 +1,24 @@
-<script type="text/template" id="ReportGeneratorView">
+<script type="text/template" id="ReportGeneratorMainView">
   <div class="reportGeneratorContainer">
     <h3>Generate Experiment Report</h3>
     
     <div class="form-group">
       <label>Select Report Type</label>
-      <select class="form-control bv_reportType">
-        <option value="project">By Project and Date Range</option>
-        <option value="experiments">By Specific Experiments</option>
-      </select>
+      <div class="radio">
+        <label>
+          <input type="radio" name="reportType" class="bv_reportType" value="project" checked>
+          By Project and Date Range
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="reportType" class="bv_reportType" value="experiments">
+          By Specific Experiments
+        </label>
+      </div>
     </div>
     
-    <div class="bv_projectSection" style="display:none;">
+    <div class="bv_projectSection">
       <div class="form-group">
         <label>Select Project</label>
         <select class="form-control bv_projectSelect" style="width:100%"></select>
@@ -19,26 +27,37 @@
       <div class="form-group">
         <label>Date Range</label>
         <div class="row">
-          <div class="col-sm-6">
-            <input type="date" class="form-control bv_startDate" placeholder="Start Date">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Start Date</label>
+              <input type="date" class="form-control bv_startDate">
+            </div>
           </div>
-          <div class="col-sm-6">
-            <input type="date" class="form-control bv_endDate" placeholder="End Date">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>End Date</label>
+              <input type="date" class="form-control bv_endDate">
+            </div>
           </div>
         </div>
       </div>
     </div>
     
-    <div class="bv_experimentsSection">
+    <div class="bv_experimentsSection" style="display:none;">
       <div class="form-group">
         <label>Select Experiments</label>
-        <select class="form-control bv_experimentSelect" style="width:100%"></select>
+        <select class="form-control bv_experimentSelect" style="width:100%" multiple></select>
       </div>
     </div>
     
     <div class="form-group">
       <label>Select Report Sections</label>
-      <select class="form-control bv_sectionSelect" style="width:100%"></select>
+      <select class="form-control bv_sectionSelect" style="width:100%" multiple>
+        <option value="introduction">Introduction</option>
+        <option value="methods">Methods</option>
+        <option value="results">Results</option>
+        <option value="discussion">Discussion</option>
+      </select>
     </div>
     
     <div class="form-group">

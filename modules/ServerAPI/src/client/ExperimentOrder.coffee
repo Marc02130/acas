@@ -1,10 +1,33 @@
 class ExperimentOrder extends BaseEntity
   urlRoot: "/api/v1/experimentorder"
 
+  defaults: ->
+    defaults = super()
+    _.extend defaults,
+      type: "default"
+      kind: "default"
+      subclass: "experimentorder"
+      recordedBy: window.AppLaunchParams.loginUser.username
+      recordedDate: new Date().getTime()
+      shortDescription: " "
+      lsLabels: new LabelList()
+      lsStates: new StateList()
+      lsTags: new Backbone.Collection()
+      fileList: new AttachFileList()
+      samples: new Backbone.Collection()
+    return defaults
+
   initialize: ->
-    console.log "ExperimentOrder model initializing" 
-    @set subclass: "experimentorder"
+    console.log "ExperimentOrder model initializing"
     super()
+    
+    # Initialize labels after super() call
+    @get('lsLabels').add new Label
+      labelKind: "name"
+      labelText: " "
+      preferred: true
+      recordedBy: @get('recordedBy')
+      recordedDate: @get('recordedDate')
 
   # Get protocol reference
   getProtocol: ->
@@ -32,6 +55,16 @@ class ExperimentOrder extends BaseEntity
         codeOrigin: "ACAS DDICT"
     statusValue
 
+  getSamples: ->
+    @get('samples')
+
+  addSample: (sample) ->
+    samples = @getSamples()
+    samples.add sample unless samples.get(sample.id)?
+
+  removeSample: (sample) ->
+    @getSamples().remove sample
+
   validate: (attrs) ->
     errors = []
     
@@ -45,6 +78,11 @@ class ExperimentOrder extends BaseEntity
       errors.push
         attribute: 'projectCode'
         message: "Project must be selected"
+
+    if @getSamples().length == 0
+      errors.push
+        attribute: 'samples'
+        message: "At least one sample must be selected"
 
     if errors.length > 0
       return errors

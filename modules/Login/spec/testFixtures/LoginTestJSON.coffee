@@ -2,10 +2,10 @@
 
 	exports.sampleLoginUser =
 		id: 4
-		username: "jam"
-		email: "john@mcneilco.com"
-		firstName: "John"
-		lastName: "McNeil"
+		username: "mb"
+		email: "putt-deny-unlined@duck.com"
+		firstName: "Marc"
+		lastName: "Duck"
 		roles: [
 			{
 				id: 3

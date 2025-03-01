@@ -73,7 +73,10 @@ services:
     command: /bin/bash ./wait-for-it.sh -t 1000 db:5432 -- catalina.sh run
   mcp:
     image: mcp-server
-    build: ../mcp-server
+    build:
+      context: ../mcp-server
+      args:
+        OPENAI_API_KEY: ${OPENAI_API_KEY}
     restart: always
     ports:
      - "3002:3002"
@@ -81,8 +84,11 @@ services:
      - NODE_ENV=production
      - ACAS_BASE_URL=http://acas:3000
      - ROO_BASE_URL=http://roo:8080/acas/api/v1
+     - OPENAI_API_KEY=${OPENAI_API_KEY}
+     - OPENAI_MODEL=gpt-4o-mini
     volumes:
      - logs:/usr/src/app/logs
+     - filestore:/usr/src/app/uploads
     depends_on:
      - db
      - acas
